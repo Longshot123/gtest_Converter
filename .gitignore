@@ -1,0 +1,14 @@
+### project generated dirs/files
+/gen_reports/
+
+### venv template
+.venv
+
+### python generated files
+__pycache__/
+*.py[cod]
+*$py.class
+
+### IDE
+/.idea/
+

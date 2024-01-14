@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="5" failures="2" errors="1" time="5.123">
+  <testsuite name="SampleTestSuite1" tests="3" failures="1" errors="0" time="2.345">
+    <testcase name="TestCase1" time="1.234"/>
+    <testcase name="TestCase2" time="0.567"/>
+    <testcase name="TestCase3">
+      <failure message="Assertion failed: x == 4">Details about the failure</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="SampleTestSuite2" tests="2" failures="1" errors="1" time="2.778">
+    <testcase name="TestCase4" time="1.111">
+      <failure message="Assertion failed: y == 42">Details about the failure</failure>
+    </testcase>
+    <testcase name="TestCase5">
+      <error message="Unhandled exception: Divide by zero">Details about the error</error>
+    </testcase>
+  </testsuite>
+</testsuites>
