@@ -1,7 +1,9 @@
+import argparse
 import os
 import xml.etree.ElementTree as ET
+import sys
+
 from html import escape
-import argparse
 
 
 class GoogleTestParser:
@@ -207,11 +209,14 @@ class HtmlReportGenerator:
             self.report_file.write("</table>\n")
 
 
-def main():
+def main(args=None):
     """
     Main function that handles the command line arguments and calls the report generator function
     :return: void
     """
+    if args is None:
+        args = sys.argv[1:]
+
     project_dir = os.path.dirname(os.path.dirname(__file__))
 
     parser = argparse.ArgumentParser(description="Generate HTML report from GoogleTest XML files.",
@@ -256,10 +261,14 @@ def main():
         report_generator = HtmlReportGenerator(test_results_list, xml_files, args.output, report_title)
         report_generator.generate_html_report()
 
+        # Print a success message
         print(f"HTML report generated successfully: {args.output}")
+        return 0
+
     except ValueError as ve:
         print(f"Error: {ve}")
+        return 1
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
